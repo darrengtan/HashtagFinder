@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'compass'
 gem 'kaminari'
 gem 'figaro'
+gem 'httparty'
+gem 'instagram'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
