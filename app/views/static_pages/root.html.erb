@@ -1,6 +1,6 @@
 <h1>Hihi</h1>
 
-<form class="" action="<%= grab_data_url %>" method="post">
+<form class="" action="<%= api_submissions_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label>
@@ -10,12 +10,12 @@
 
   <label>
     From
-    <input type="date" name="submission[start]" value="">
+    <input type="date" name="submission[start_date]" value="">
   </label><br>
 
   <label>
     To
-    <input type="date" name="submission[end]" value="">
+    <input type="date" name="submission[end_date]" value="">
   </label><br>
 
   <input type="submit" value="Submit">

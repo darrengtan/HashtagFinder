@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-    get 'submissions' => 'submissions#new', as: :new
-    post 'submissions/grab_data' => 'submissions#grab_data', as: :grab_data
+  namespace :api, defaults: { format: :json } do
+    resources :submissions, only: [:create, :index, :show]
+  end
 
   root to: 'static_pages#root'
 end

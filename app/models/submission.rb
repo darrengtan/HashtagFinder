@@ -1,12 +1,21 @@
 class Submission < ActiveRecord::Base
   include HTTParty
-  base_uri 'https://api.instagram.com'
+  base_uri 'https://api.instagram.com/v1/tags'
   default_params output: :json
   format :json
 
-  API_URL = 'https://api.instagram.com/v1/tags/snow/media/recent?client_id=773edae87abe48c58d95ced3d6a750de&max_tag_id=1077768677110124880'
+  validates :hashtag, :start_date, :end_date, :response, presence: true
+  validate :end_after_start
 
-  def self.get_data
-    get("/v1/tags/snow/media/recent?client_id=773edae87abe48c58d95ced3d6a750de&max_tag_id=1077768677110124880")
+  def end_after_start
+    if end_date < start_date
+      errors.add(:end_date, "must be after the start date")
+    end
+  end
+
+  def self.get_data(tag, start_date, end_date)
+    get(
+      "/#{tag}/media/recent?client_id=#{ENV['CLIENT_ID']}&max_tag_id=#{Time.parse(start_date).to_i}&min_tag_id=#{Time.parse(end_date).to_i}"
+    )
   end
 end
