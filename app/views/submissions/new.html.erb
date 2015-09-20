@@ -1,0 +1,22 @@
+<h1>Hihi</h1>
+
+<form class="" action="<%= grab_data_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>
+    #
+    <input type="text" name="submission[hashtag]" value="">
+  </label><br>
+
+  <label>
+    From
+    <input type="date" name="submission[start]" value="">
+  </label><br>
+
+  <label>
+    To
+    <input type="date" name="submission[end]" value="">
+  </label><br>
+
+  <input type="submit" value="Submit">
+</form>
