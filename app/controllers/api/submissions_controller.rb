@@ -5,15 +5,16 @@ class Api::SubmissionsController < ApplicationController
     @end = submission_params[:end_date]
     @response = Submission.get_data(@hashtag, @start, @end)
     @submission = Submission.new(submission_params)
-    @submission.response = @response
-    if @submission.save
-      fail
-      render :show
-    else
-      fail
-      render json: @submission.errors.full_messages,
-                     status: :unprocessable_entity
-    end
+    @submission.response = @response.body
+    return @response.body
+    # if @submission.save
+    #   fail
+    #   render :show
+    # else
+    #   fail
+    #   render json: @submission.errors.full_messages,
+    #                  status: :unprocessable_entity
+    # end
   end
 
   def index
