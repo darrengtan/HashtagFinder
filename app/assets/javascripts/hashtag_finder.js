@@ -5,7 +5,7 @@ window.HashtagFinder = {
   Routers: {},
   initialize: function () {
     var $rootEl = $("div#main-content");
-    var $formEl = $("div#form-container");
+    var $sidebar = $("div#sidebar");
     var submissions = new TournaGen.Collections.Submissions();
     var posts = new TournaGen.Collections.Posts();
     var teams = new TournaGen.Collections.Teams();

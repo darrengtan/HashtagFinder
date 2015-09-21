@@ -1,8 +1,14 @@
 HashtagFinder.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    this.$sidebarEl = options.$formEl;
     this.submissions = options.submissions;
     this.posts = options.posts;
+    var sidebarView = new HashtagFinder.Views.SidebarView({
+      collection: this.submissions
+    });
+
+    this.$sidebarEl.html(sidebarView.render().$el);
   },
 
   routes: {

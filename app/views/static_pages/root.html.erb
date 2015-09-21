@@ -1,32 +1,9 @@
-<h1>Hihi</h1>
-
-<div class="form-container">
-  <form class="" action="<%= api_submissions_url %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-    <label>
-      #
-      <input type="text" name="submission[hashtag]" value="">
-    </label><br>
-
-    <label>
-      From
-      <input type="date" name="submission[start_date]" value="">
-    </label><br>
-
-    <label>
-      To
-      <input type="date" name="submission[end_date]" value="">
-    </label><br>
-
-    <input type="submit" value="Submit">
-  </form>
-</div>
+<div id="sidebar"></div>
 
 <div id="main-content"></div>
 
 <script type="text/javascript">
-  $(document).ready(function(){
+  $(document).ready(function () {
     HashtagFinder.initialize();
   });
 </script>
