@@ -35,13 +35,14 @@ HashtagFinder.Views.SubmissionForm = Backbone.View.extend({
   submit: function (e) {
     e.preventDefault();
     // set model attrs to form values
-    var attrs = $(e.currentTarget).serializeJSON().tournament;
+    var attrs = $(e.currentTarget).serializeJSON().submission;
+    debugger;
     this.model.set(attrs);
     this.model.save({}, {
       success: function () {
         // navigate to tournament show on success
         this.collection.add(this.model, { merge: true });
-        Backbone.history.navigate("tournaments/" + this.model.escape("id"), { trigger: true });
+        Backbone.history.navigate("submissions/" + this.model.escape("id"), { trigger: true });
         this.remove();
       }.bind(this),
 

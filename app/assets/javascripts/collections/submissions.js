@@ -4,7 +4,7 @@ HashtagFinder.Collections.Submissions = Backbone.Collection.extend({
   getOrFetch: function (id) {
     var submission = this.get(id);
     if (!submission) {
-      submission = new TournaGen.Models.Submission({ id: id });
+      submission = new HashtagFinder.Models.Submission({ id: id });
       this.add(submission);
       submission.fetch({
         error: function () {

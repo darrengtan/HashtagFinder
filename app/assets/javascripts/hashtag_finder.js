@@ -5,13 +5,12 @@ window.HashtagFinder = {
   Routers: {},
   initialize: function () {
     var $rootEl = $("div#main-content");
-    var $sidebar = $("div#sidebar");
-    var submissions = new TournaGen.Collections.Submissions();
-    var posts = new TournaGen.Collections.Posts();
-    var teams = new TournaGen.Collections.Teams();
-    var router = new TournaGen.Routers.Router({
+    var $sidebarEl = $("div#sidebar");
+    var submissions = new HashtagFinder.Collections.Submissions();
+    var posts = new HashtagFinder.Collections.Posts();
+    var router = new HashtagFinder.Routers.Router({
       $rootEl: $rootEl,
-      $formEl: $formEl,
+      $sidebarEl: $sidebarEl,
       submissions: submissions,
       posts: posts
     });

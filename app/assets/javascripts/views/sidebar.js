@@ -6,9 +6,12 @@ HashtagFinder.Views.SidebarView = Backbone.View.extend({
     return this;
   },
 
+  events: {
+    "click .new-submission": "createSubmission"
+  },
+
   createSubmission: function (e) {
-    e.preventDefault();
-    var submission = new HashtagFinder.Models.Tournament();
+    var submission = new HashtagFinder.Models.Submission();
     var modal = new HashtagFinder.Views.SubmissionForm({
       model: submission,
       collection: this.collection

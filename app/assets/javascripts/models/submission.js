@@ -1,4 +1,4 @@
-HashtagFinder.Models.Submission = Backbone.extend({
+HashtagFinder.Models.Submission = Backbone.Model.extend({
   urlRoot: "api/submissions",
 
   parse: function (response) {
