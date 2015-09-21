@@ -1,9 +1,21 @@
-window.HashtagFinder =
-  Models: {}
-  Collections: {}
-  Views: {}
-  Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+window.HashtagFinder = {
+  Models: {},
+  Collections: {},
+  Views: {},
+  Routers: {},
+  initialize: function () {
+    var $rootEl = $("div#main-content");
+    var $formEl = $("div#form-container");
+    var submissions = new TournaGen.Collections.Submissions();
+    var posts = new TournaGen.Collections.Posts();
+    var teams = new TournaGen.Collections.Teams();
+    var router = new TournaGen.Routers.Router({
+      $rootEl: $rootEl,
+      $formEl: $formEl,
+      submissions: submissions,
+      posts: posts
+    });
 
-$(document).ready ->
-  HashtagFinder.initialize()
+    Backbone.history.start();
+  }
+};
