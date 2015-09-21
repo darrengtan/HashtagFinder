@@ -8,6 +8,7 @@ HashtagFinder.Views.SubmissionShow = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ submission: this.model }));
+    debugger;
     return this;
   }
 });
