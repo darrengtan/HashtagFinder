@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe SubmissionsController, type: :controller do
+RSpec.describe Api::SubmissionsController, type: :controller do
 
 end
