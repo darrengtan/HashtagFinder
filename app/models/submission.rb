@@ -21,6 +21,10 @@ class Submission < ActiveRecord::Base
     )
   end
 
+  def self.get_next_page(url)
+    get(url)
+  end
+
   def parsed_response
     JSON.parse(self.response)
   end
