@@ -7,6 +7,7 @@ HashtagFinder.Views.SubmissionForm = Backbone.View.extend({
 
   events: {
     "submit form": "submit",
+    // ways to exit out of modal
     "click .close": "removeModal",
     "click .modal-background": "remove"
   },
@@ -18,7 +19,7 @@ HashtagFinder.Views.SubmissionForm = Backbone.View.extend({
   },
 
   onRender: function () {
-    this.$('.title-field').focus();
+    this.$('.tag-field').focus();
   },
 
   removeModal: function (e) {

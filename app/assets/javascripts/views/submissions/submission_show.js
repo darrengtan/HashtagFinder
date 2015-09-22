@@ -8,13 +8,13 @@ HashtagFinder.Views.SubmissionShow = Backbone.CompositeView.extend({
     this.listenForScroll();
   },
 
-  listenForScroll: function () { // add more teams once window at bottom of page
+  listenForScroll: function () { // add more posts once window at bottom of page
     $(window).off("scroll");
     var throttledCallback = _.throttle(this.fetchMorePosts.bind(this), 500);
     $(window).on("scroll", throttledCallback);
   },
 
-  fetchMorePosts: function (e) { // get next subcollection of teams
+  fetchMorePosts: function (e) { // get next subcollection of posts
     if ($(window).scrollTop() === $(document).height() - $(window).height()) {
       $.ajax({
         url: "/api/submissions",
@@ -37,6 +37,7 @@ HashtagFinder.Views.SubmissionShow = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ submission: this.model }));
+    // render first 20 posts for submission
     this.model.posts().each(this.addPostItemSubview.bind(this));
     return this;
   },

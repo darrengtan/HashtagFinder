@@ -4,6 +4,7 @@ HashtagFinder.Collections.Submissions = Backbone.Collection.extend({
   getOrFetch: function (id) {
     var submission = this.get(id);
     if (!submission) {
+      // add new model to collection and fetch
       submission = new HashtagFinder.Models.Submission({ id: id });
       this.add(submission);
       submission.fetch({
@@ -12,6 +13,7 @@ HashtagFinder.Collections.Submissions = Backbone.Collection.extend({
         }.bind(this)
       });
     } else {
+      // else fetch if already exists
       submission.fetch();
     }
 

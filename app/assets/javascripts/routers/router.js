@@ -12,7 +12,7 @@ HashtagFinder.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "submissionsIndex",
+    "": "root",
     "submissions": "submissionsIndex",
     "submissions/:id": "submissionShow"
   },
