@@ -5,11 +5,11 @@ HashtagFinder.Views.SubmissionShow = Backbone.CompositeView.extend({
     this.submissions = options.submissions;
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.posts(), "add", this.addPostItemSubview);
-    this.model.posts().each(this.addPostItemSubview.bind(this));
   },
 
   render: function () {
     this.$el.html(this.template({ submission: this.model }));
+    this.model.posts().each(this.addPostItemSubview.bind(this));
     return this;
   },
 
