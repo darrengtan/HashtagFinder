@@ -7,8 +7,6 @@ class Submission < ActiveRecord::Base
   validates :hashtag, :start_date, :end_date, :response, presence: true
   validate :end_after_start
 
-  has_many :photos
-
   # end date must be after start date
   def end_after_start
     if end_date < start_date
