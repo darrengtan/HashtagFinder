@@ -17,6 +17,7 @@ HashtagFinder.Routers.Router = Backbone.Router.extend({
     "submissions/:id": "submissionShow"
   },
 
+  // placeholder, doesn't actually do anything for now
   submissionsIndex: function () {
     this.submissions.fetch();
     var view = new HashtagFinder.Views.SubmissionsIndex({
@@ -36,7 +37,8 @@ HashtagFinder.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  _swapView: function (view) { // prevent zombie views using composite views
+  // prevent zombie views using composite views
+  _swapView: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);

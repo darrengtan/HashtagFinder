@@ -8,13 +8,15 @@ HashtagFinder.Views.SubmissionShow = Backbone.CompositeView.extend({
     this.listenForScroll();
   },
 
-  listenForScroll: function () { // add more posts once window at bottom of page
+  // add more posts once window at bottom of page
+  listenForScroll: function () {
     $(window).off("scroll");
     var throttledCallback = _.throttle(this.fetchMorePosts.bind(this), 500);
     $(window).on("scroll", throttledCallback);
   },
 
-  fetchMorePosts: function (e) { // get next subcollection of posts
+  // get next subcollection of posts
+  fetchMorePosts: function (e) {
     if ($(window).scrollTop() === $(document).height() - $(window).height()) {
       $.ajax({
         url: "/api/submissions",

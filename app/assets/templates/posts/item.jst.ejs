@@ -1,3 +1,6 @@
+Username: <%= post.instagramUsername() %><br>
+<a href="<%= post.instagramLink() %>">Link to Source</a><br>
+
 <% if (post.instagramVideo()) { %>
   <video src="<%= post.instagramVideo() %>" controls poster="<%= post.instagramImage() %>">
     We don't support that format :(
@@ -5,7 +8,3 @@
 <% } else { %>
   <img src="<%= post.instagramImage() %>"/>
 <% } %><br>
-
-Username: <%= post.instagramUsername() %><br>
-
-<a href="<%= post.instagramLink() %>">Link to Source</a>

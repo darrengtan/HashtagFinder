@@ -16,3 +16,24 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+html {
+  font-family: "Helvetica";
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#sidebar, #main-content {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+li.post-item {
+  margin-bottom: 10px;
+  border: 2px solid black;
+}
