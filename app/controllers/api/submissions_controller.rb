@@ -4,9 +4,11 @@ class Api::SubmissionsController < ApplicationController
     @start = submission_params[:start_date]
     @end = submission_params[:end_date]
     if params[:next_page]
+      # grab next pagination if next_page params exist
       @response = Submission.get_next_page(params[:next_page])
       render :next_page
     else
+      # otherwise proceed as normal: create submission
       @response = Submission.get_data(@hashtag, @start, @end)
       @submission = Submission.new(submission_params)
       @submission.response = @response.body
