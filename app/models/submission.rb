@@ -16,16 +16,19 @@ class Submission < ActiveRecord::Base
     end
   end
 
+  # send get request to instagram api with appropriate attributes
   def self.get_data(tag, start_date, end_date)
     get(
       "/#{tag}/media/recent?client_id=#{ENV['CLIENT_ID']}&max_tag_id=#{Time.parse(start_date).to_i}&min_tag_id=#{Time.parse(end_date).to_i}"
     )
   end
 
+  # next page from next_url
   def self.get_next_page(url)
     get(url)
   end
 
+  # parse json to get nested hash
   def parsed_response
     JSON.parse(self.response)
   end

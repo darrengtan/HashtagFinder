@@ -11,6 +11,7 @@ class Api::SubmissionsController < ApplicationController
       # otherwise proceed as normal: create submission
       @response = Submission.get_data(@hashtag, @start, @end)
       @submission = Submission.new(submission_params)
+      # save json version of response to db
       @submission.response = @response.body
       if @submission.save
         render :show
