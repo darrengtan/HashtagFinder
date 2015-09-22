@@ -1,0 +1,10 @@
+<% if (post.instagramVideo()) {) %>
+  <video poster="<%= post.instagramImage() %>">
+    <source src="<%= post.instagramVideo() %>" type="video/mp4">
+    We only support mp4 videos :(
+  </video>
+<% } else { %>
+  <img src="<%= post.instagramImage() %>"/>
+<% } %>
+
+<a href="<%= post.instagramLink() %>">Link to Source</a>
